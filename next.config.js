@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // Active l'export statique pour Cloudflare Pages
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    unoptimized: true, // Nécessaire pour l'export statique
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

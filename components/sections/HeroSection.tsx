@@ -48,7 +48,7 @@ export function HeroSection() {
             className="max-w-3xl mx-auto text-xl sm:text-2xl text-muted-foreground"
           >
             Expert en solutions audiovisuelles sur IP, consulting technique et
-            gestion de projets pour broadcasters et production vidéo
+            gestion de projets pour broadcasters et production vidéo. Conception et fabrication de régies fly modulaires et systèmes de réalisation/streaming compacts.
           </motion.p>
 
           <motion.div

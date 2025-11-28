@@ -58,13 +58,34 @@ export function ContactSection() {
     setSubmitStatus(null);
 
     try {
-      // Simulation d'envoi - À remplacer par votre API
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Form data:", data);
+      const formData = {
+        access_key: "0c99fbb0-5645-47e9-be46-ea7e6d76f82b",
+        name: data.name,
+        email: data.email,
+        company: data.company || "",
+        subject: data.subject,
+        message: data.message,
+      };
 
-      setSubmitStatus("success");
-      reset();
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        reset();
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
+      console.error("Error submitting form:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

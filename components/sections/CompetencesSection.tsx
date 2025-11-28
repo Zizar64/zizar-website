@@ -21,7 +21,7 @@ const competences = [
       { name: "AES67", level: 90 },
       { name: "DANTE", level: 95 },
       { name: "Ravenna", level: 80 },
-      { name: "MADI", level: 85 },
+      { name: "SIP", level: 85 },
     ],
   },
   {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Settings, Users, Video } from "lucide-react";
+import { Settings, Users, Video, Box } from "lucide-react";
 
 const services = [
   {
@@ -29,15 +29,27 @@ const services = [
     ],
   },
   {
+    icon: Box,
+    title: "Conception & Fabrication sur Mesure",
+    description:
+      "Conception et fabrication de régies fly modulaires et systèmes de réalisation/streaming compacts adaptés à vos besoins spécifiques.",
+    features: [
+      "Régies fly modulaires",
+      "Systèmes de réalisation compacts",
+      "Solutions de streaming intégrées",
+      "Configurations personnalisées",
+    ],
+  },
+  {
     icon: Users,
     title: "Opérateur Polyvalent",
     description:
-      "Intervention opérationnelle sur site pour assurer le bon déroulement de vos productions et événements.",
+      "Intervention opérationnelle sur site avec une polyvalence technique complète pour assurer le bon déroulement de vos productions et événements.",
     features: [
-      "Régie vidéo et audio",
-      "Support technique live",
-      "Maintenance préventive",
-      "Dépannage rapide",
+      "Expertise VMIX",
+      "Réalisateur",
+      "Ingénieur son",
+      "Chef d'équipement",
     ],
   },
 ];
@@ -62,7 +74,7 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -73,9 +85,11 @@ export function ServicesSection() {
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-              <div className="relative h-full p-8 bg-card border border-border rounded-2xl hover:border-primary-500/50 transition-colors">
-                <div className="inline-flex p-3 rounded-xl bg-primary-500/10 text-primary-500 mb-6">
-                  <service.icon className="h-8 w-8" />
+              <div className="relative h-full p-8 bg-card border border-border rounded-2xl hover:border-primary-500/50 transition-colors text-center">
+                <div className="flex justify-center mb-6">
+                  <div className="inline-flex p-3 rounded-xl bg-primary-500/10 text-primary-500">
+                    <service.icon className="h-8 w-8" />
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">
@@ -85,7 +99,7 @@ export function ServicesSection() {
                   {service.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-center text-sm text-muted-foreground"
+                      className="flex items-center justify-center text-sm text-muted-foreground"
                     >
                       <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary-500" />
                       {feature}

@@ -246,13 +246,23 @@ npm run lint
 
 ### Sections implémentées
 1. ✅ **Hero Section** - Présentation avec animations
-2. ✅ **Services** - 3 types de prestations
+   - Mention régies fly modulaires et systèmes de réalisation/streaming compacts
+2. ✅ **Services** - 4 prestations en grille 2x2
+   - Consulting & Gestion de Projets
+   - Renforts Ingénierie Systèmes IP
+   - **Conception & Fabrication sur Mesure** (régies fly modulaires, systèmes compacts)
+   - Opérateur Polyvalent (VMIX, Réalisateur, Ingénieur son, Chef d'équipement)
+   - Logos et textes centrés
 3. ✅ **Compétences** - Barres de progression animées
-4. ✅ **Certifications** - AWS, DANTE, Formation
-5. ✅ **Portfolio** - 4 projets avec filtres par catégorie
-6. ✅ **Témoignages** - 3 témoignages clients
-7. ✅ **Blog** - 3 articles exemples
-8. ✅ **Contact** - Formulaire avec validation
+   - Audio IP : AES67, DANTE, Ravenna, **SIP** (remplace MADI)
+4. ✅ **Certifications & Formations** - Section complète
+   - **6 certifications** (2 certifiées + 4 en préparation)
+   - **2 formations** avec badges "Major" (Licence W.A.M.N + BTS Audiovisuel Son)
+   - Section Expérience en cartes
+5. ❌ **Portfolio** - Masqué temporairement
+6. ❌ **Témoignages** - Masqué temporairement
+7. ❌ **Blog** - Masqué temporairement
+8. ✅ **Contact** - Formulaire avec validation Web3Forms (API intégrée)
 
 ### Optimisations
 - ✅ SEO : Metadata complète, sitemap, robots.txt
@@ -329,12 +339,13 @@ git push             # → Déploie automatiquement sur Cloudflare
 ## 📋 TODO / Prochaines étapes
 
 ### Site vitrine - Contenu à personnaliser
-- [ ] Remplacer les informations de contact (email, téléphone)
+- [x] ~~Remplacer les informations de contact (email, téléphone)~~ - Web3Forms intégré
 - [ ] Ajouter le vrai logo dans la navigation
 - [ ] Ajouter de vraies photos de projets
-- [ ] Remplacer les projets exemples par de vrais projets
-- [ ] Ajouter de vrais témoignages clients
-- [ ] Modifier les pourcentages de compétences selon l'expertise réelle
+- [x] ~~Modifier les pourcentages de compétences selon l'expertise réelle~~ - Mis à jour
+- [ ] Réactiver et personnaliser la section Portfolio quand prêt
+- [ ] Réactiver et personnaliser la section Témoignages quand prêt
+- [ ] Réactiver et personnaliser la section Blog quand prêt
 
 ### CV Numérique - Déploiement
 - [ ] Créer un projet Cloudflare Pages pour le CV
@@ -351,7 +362,7 @@ git push             # → Déploie automatiquement sur Cloudflare
 - [ ] Ajouter un QR code généré dynamiquement
 
 ### Fonctionnalités à ajouter (optionnel)
-- [ ] Intégrer un service email pour le formulaire de contact (Resend, SendGrid)
+- [x] ~~Intégrer un service email pour le formulaire de contact~~ - Web3Forms (0c99fbb0-5645-47e9-be46-ea7e6d76f82b)
 - [ ] Implémenter le système de blog avec MDX
 - [ ] Ajouter Google Analytics ou Plausible sur le site principal
 - [ ] Créer des pages individuelles pour les projets du portfolio
@@ -379,6 +390,11 @@ git push             # → Déploie automatiquement sur Cloudflare
 **Solution** : Utiliser `hsl(var(--border))` au lieu de `@apply border-border`
 **Commit** : `Configure static export for Cloudflare Pages`
 
+### 3. Erreur TypeScript avec le dossier cv/ lors du build ✅ RÉSOLU
+**Problème** : Le build Cloudflare essayait de compiler le dossier `cv/` en même temps que le site principal
+**Solution** : Ajout de `"cv"` dans l'exclusion du `tsconfig.json` à la racine
+**Commit** : `3405951` - "Fix: Exclude cv folder from main build to prevent TypeScript errors"
+
 ---
 
 ## 📚 Ressources & Documentation
@@ -402,11 +418,18 @@ git push             # → Déploie automatiquement sur Cloudflare
 **Activité** : Zizar - Freelance en ingénierie audiovisuelle
 
 **Spécialités** :
-- Vidéo/Audio sur IP (ST 2110, NDI, AES67)
+- Vidéo/Audio sur IP (ST 2110, NDI, AES67, SIP)
 - SMPTE ST 2110
 - DANTE Level 3
 - AWS Solution Architect
 - Workflows audiovisuels et médias numériques
+- **Conception et fabrication** : Régies fly modulaires et systèmes de réalisation/streaming compacts
+
+**Expertises opérationnelles** :
+- Expertise VMIX
+- Réalisateur
+- Ingénieur son
+- Chef d'équipement
 
 **Expérience** :
 - Broadcasters nationaux et internationaux
@@ -439,6 +462,21 @@ git push             # → Déploie automatiquement sur Cloudflare
 
 ## 🔄 Historique des versions
 
+### v1.2.0 (2024-11-28) - Personnalisation complète du site
+- ✅ **Services** : Ajout du service "Conception & Fabrication sur Mesure" (régies fly modulaires, systèmes de réalisation/streaming compacts)
+- ✅ **Services** : Grille 2x2 responsive, centrage des logos et textes
+- ✅ **Opérateur Polyvalent** : Mise à jour avec expertises (VMIX, Réalisateur, Ingénieur son, Chef d'équipement)
+- ✅ **Compétences** : Remplacement MADI par SIP dans Audio IP
+- ✅ **Certifications** : Ajout de 6 certifications complètes (2 certifiées + 4 en préparation)
+- ✅ **Formations** : Ajout Licence W.A.M.N et BTS Audiovisuel Son avec badges "Major"
+- ✅ **Layout** : Alignement parfait des sections Certifications/Formations/Expérience en grilles
+- ✅ **Hero Section** : Mention régies fly modulaires et systèmes de réalisation/streaming compacts
+- ✅ **Contact** : Intégration API Web3Forms (clé : 0c99fbb0-5645-47e9-be46-ea7e6d76f82b)
+- ✅ **Navigation** : Retrait sections Portfolio, Blog, Témoignages (masquées temporairement)
+- ✅ **Navigation** : Ajout lien vers section Certifications
+- ✅ **Build** : Fix exclusion dossier cv/ du build principal (tsconfig.json)
+- ✅ **Commits** : `bb46b69` (personnalisation) + `3405951` (fix build)
+
 ### v1.1.0 (2024-11-24) - CV Numérique
 - ✅ Création du dossier `cv/` avec application Next.js dédiée
 - ✅ 8 sections complètes : Hero, Contact, Expériences, Expériences Complémentaires, Formations, Protocoles, Certifications, Langues
@@ -463,6 +501,6 @@ git push             # → Déploie automatiquement sur Cloudflare
 
 ---
 
-**Dernière mise à jour** : 24 novembre 2024
+**Dernière mise à jour** : 28 novembre 2024
 **Par** : Claude Code
 **Contact projet** : https://github.com/Zizar64/zizar-website

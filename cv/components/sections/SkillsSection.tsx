@@ -10,9 +10,9 @@ export function SkillsSection() {
       title: "Audio IP",
       color: "primary",
       skills: [
-        { name: "AES67", percentage: 75 },
-        { name: "DANTE", percentage: 85 },
-        { name: "SIP", percentage: 90 },
+        { name: "AES67", level: "Avancé" },
+        { name: "DANTE", level: "Avancé" },
+        { name: "SIP", level: "Expert" },
       ],
     },
     {
@@ -20,9 +20,9 @@ export function SkillsSection() {
       title: "Video IP",
       color: "accent",
       skills: [
-        { name: "SMPTE2110", percentage: 70 },
-        { name: "NDI", percentage: 85 },
-        { name: "IPMX", percentage: 30 },
+        { name: "SMPTE2110", level: "Intermédiaire" },
+        { name: "NDI", level: "Avancé" },
+        { name: "IPMX", level: "Bases" },
       ],
     },
     {
@@ -30,9 +30,9 @@ export function SkillsSection() {
       title: "INTERCOM",
       color: "primary",
       skills: [
-        { name: "RTS", percentage: 85 },
-        { name: "RIEDEL", percentage: 80 },
-        { name: "Clearcom", percentage: 35 },
+        { name: "RTS", level: "Avancé" },
+        { name: "RIEDEL", level: "Avancé" },
+        { name: "Clearcom", level: "Bases" },
       ],
     },
     {
@@ -40,9 +40,10 @@ export function SkillsSection() {
       title: "Cloud",
       color: "accent",
       skills: [
-        { name: "AWS EC2", percentage: 60 },
-        { name: "AWS S3", percentage: 70 },
-        { name: "AWS Networking", percentage: 65 },
+        { name: "AWS EC2", level: "Intermédiaire" },
+        { name: "AWS S3", level: "Intermédiaire" },
+        { name: "AWS Networking", level: "Intermédiaire" },
+        { name: "Google Cloud", level: "Bases" },
       ],
     },
     {
@@ -50,20 +51,21 @@ export function SkillsSection() {
       title: "Infrastructure",
       color: "primary",
       skills: [
-        { name: "TCP/IP", percentage: 70 },
-        { name: "VLAN", percentage: 75 },
-        { name: "QoS", percentage: 65 },
-        { name: "Virtualisation", percentage: 80 },
+        { name: "TCP/IP", level: "Intermédiaire" },
+        { name: "VLAN", level: "Avancé" },
+        { name: "QoS", level: "Intermédiaire" },
+        { name: "Virtualisation", level: "Avancé" },
       ],
     },
     {
       icon: Zap,
-      title: "Automation & Scripting",
+      title: "DevOps & Scripting",
       color: "accent",
       skills: [
-        { name: "Python", percentage: 55 },
-        { name: "Bash/Shell", percentage: 65 },
-        { name: "API REST", percentage: 55 },
+        { name: "Python", level: "Intermédiaire" },
+        { name: "Bash/Shell", level: "Intermédiaire" },
+        { name: "Node.JS & TypeScript", level: "Intermédiaire" },
+        { name: "Docker", level: "Avancé" },
       ],
     },
   ];
@@ -110,40 +112,24 @@ export function SkillsSection() {
             >
               <div className="h-full p-6 rounded-xl bg-card border border-border hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className={`p-3 rounded-lg ${
-                    category.color === "primary" ? "bg-primary-500/10" : "bg-accent-500/10"
-                  } group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-accent-500 transition-all`}>
-                    <category.icon className={`h-6 w-6 ${
-                      category.color === "primary" ? "text-primary-500" : "text-accent-500"
-                    } group-hover:text-white transition-colors`} />
+                  <div className={`p-3 rounded-lg ${category.color === "primary" ? "bg-primary-500/10" : "bg-accent-500/10"
+                    } group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-accent-500 transition-all`}>
+                    <category.icon className={`h-6 w-6 ${category.color === "primary" ? "text-primary-500" : "text-accent-500"
+                      } group-hover:text-white transition-colors`} />
                   </div>
                   <h3 className="text-lg font-bold">{category.title}</h3>
                 </div>
 
                 <div className="space-y-4">
                   {category.skills.map((skill, idx) => (
-                    <div key={idx}>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className={`text-sm font-bold ${
-                          category.color === "primary" ? "text-primary-500" : "text-accent-500"
+                    <div key={idx} className="flex items-center justify-between p-2 rounded-lg bg-background/50">
+                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${category.color === "primary"
+                          ? "bg-primary-500/10 text-primary-500"
+                          : "bg-accent-500/10 text-accent-500"
                         }`}>
-                          {skill.percentage}%
-                        </span>
-                      </div>
-                      <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.percentage}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: index * 0.1 + idx * 0.1 }}
-                          className={`absolute top-0 left-0 h-full rounded-full ${
-                            category.color === "primary"
-                              ? "bg-gradient-to-r from-primary-500 to-primary-600"
-                              : "bg-gradient-to-r from-accent-500 to-accent-600"
-                          }`}
-                        />
-                      </div>
+                        {skill.level}
+                      </span>
                     </div>
                   ))}
                 </div>

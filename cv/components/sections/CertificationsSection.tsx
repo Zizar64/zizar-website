@@ -6,6 +6,13 @@ import { Award, Clock } from "lucide-react";
 export function CertificationsSection() {
   const certifications = [
     {
+      name: "NDI Basic",
+      status: "Certifié",
+      level: "Janvier 2026",
+      color: "primary",
+      image: "/NDI_Basics_Badge.webp",
+    },
+    {
       name: "DANTE Level 3",
       status: "Certifié",
       level: "Janvier 2022",
@@ -75,24 +82,27 @@ export function CertificationsSection() {
             >
               <div className="h-full p-6 rounded-xl bg-background border border-border hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-lg ${
-                    cert.color === "primary" ? "bg-primary-500/10" : "bg-accent-500/10"
-                  } group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-accent-500 transition-all`}>
-                    {cert.status === "Certifié" ? (
-                      <Award className={`h-6 w-6 ${
-                        cert.color === "primary" ? "text-primary-500" : "text-accent-500"
-                      } group-hover:text-white transition-colors`} />
+                  <div className={`${cert.image ? "p-1" : "p-3"
+                    } rounded-lg ${cert.color === "primary" ? "bg-primary-500/10" : "bg-accent-500/10"
+                    } group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-accent-500 transition-all`}>
+                    {cert.image ? (
+                      <img
+                        src={cert.image}
+                        alt={cert.name}
+                        className="h-14 w-14 object-contain rounded-md"
+                      />
+                    ) : cert.status === "Certifié" ? (
+                      <Award className={`h-6 w-6 ${cert.color === "primary" ? "text-primary-500" : "text-accent-500"
+                        } group-hover:text-white transition-colors`} />
                     ) : (
-                      <Clock className={`h-6 w-6 ${
-                        cert.color === "primary" ? "text-primary-500" : "text-accent-500"
-                      } group-hover:text-white transition-colors`} />
+                      <Clock className={`h-6 w-6 ${cert.color === "primary" ? "text-primary-500" : "text-accent-500"
+                        } group-hover:text-white transition-colors`} />
                     )}
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    cert.status === "Certifié"
-                      ? "bg-green-500/10 text-green-500"
-                      : "bg-orange-500/10 text-orange-500"
-                  }`}>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${cert.status === "Certifié"
+                    ? "bg-green-500/10 text-green-500"
+                    : "bg-orange-500/10 text-orange-500"
+                    }`}>
                     {cert.status}
                   </span>
                 </div>
